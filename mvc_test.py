@@ -359,13 +359,12 @@ class MainMenu( Menu ):
         pyglet.app.exit()
 
 def get_newgame():
-    
     scene = Scene()
     model = Model()
     controller = Controller(model)
+    model.set_controller(controller)
     hud = HUD()
     view = View(model, hud)
-    model.set_controller(controller)
     scene.add(controller, z=1, name='controller')
     scene.add(BackgroundLayer(), z=0, name='background')
     scene.add(view, z=2, name='view')
